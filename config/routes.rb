@@ -300,6 +300,8 @@ Rails.application.routes.draw do
     as :user do
       controller 'admin/sessions' do
         get  '/admin/login',    action: 'new'
+        get  '/admin/govuh/start', action: 'govuh_start'
+        get  '/admin/govuh/callback', action: 'govuh_callback'
         post '/admin/login',    action: 'create', as: nil
         get  '/admin/logout',   action: 'destroy'
         get  '/admin/continue', action: 'continue'

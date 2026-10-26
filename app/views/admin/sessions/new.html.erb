@@ -1,6 +1,9 @@
 <h1>Sign in</h1>
 <div class="grid-row">
   <div class="column-half">
+    <p>Sign in using your authorised GOV.UH Signon account. Parliamentary moderator permission is checked separately.</p>
+    <p><%= link_to "Sign in with GOV.UH Signon", "/admin/govuh/start", class: "button" %></p>
+    <% if IdentityProvider.providers.any? %>
     <%= form_for(@user, as: :user, url: admin_login_path, authenticity_token: form_authenticity_token) do |form| %>
       <div class="form-group">
         <%= form.label :email, "Email", class: "form-label" %>
@@ -8,6 +11,7 @@
       </div>
 
       <%= form.submit "Sign in", class: "button" %>
+    <% end %>
     <% end %>
   </div>
 </div>

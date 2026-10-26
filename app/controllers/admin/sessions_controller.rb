@@ -1,4 +1,5 @@
 class Admin::SessionsController < Devise::SessionsController
+  include Admin::GovuhSignon
   skip_before_action :require_admin, except: :continue
   prepend_before_action :skip_timeout, only: :status
 
