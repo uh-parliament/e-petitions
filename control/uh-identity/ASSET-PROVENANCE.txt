@@ -1,0 +1,10 @@
+UH Parliament e-petitions — national coat-of-arms source
+26 October 2026
+Black source: https://www.gov.uhrblx.com/uh-brand/uh-government-coat-of-arms.svg
+Source SHA256: 935df7d32dad7663babe478d0eaa168538a1bc8d33c3c988130569ddec3f8c74
+The black SVG is an exact, byte-identical copy of the live GOV.UH national coat-of-arms mark.
+The white SVG replaces embedded image RGB with white while preserving all 62x41 alpha pixels.
+The public/editor footer uses black, and the green Government response tile uses white.
+This retains the existing independent Parliament password/TOTP staff login and backend.
+Original UK Government logo and UK Royal Arms assets are excluded from the active image.
+UK Parliament portcullis remains outside this narrow national coat-of-arms replacement.

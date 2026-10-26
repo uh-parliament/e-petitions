@@ -21,7 +21,7 @@
     <hr>
 
     <p class="copyright">
-      © UK Parliament <%= Time.current.year %>
+      © UH Parliament <%= Time.current.year %>
     </p>
 
     <div class="meta">
@@ -39,8 +39,8 @@
         <%= image_tag("frontend/uk-parliament-logo.svg", alt: "UK Parliament logo") %>
       </p>
 
-      <p class="uk-government-logo">
-        <%= image_tag("frontend/uk-government-logo.svg", alt: "UK Government logo") %>
+      <p class="uh-government-logo">
+        <%= image_tag("/uh-parliament-brand/uh-government-coat-of-arms.svg", alt: "UH Government coat of arms", width: 62, height: 41) %>
       </p>
     </div>
   </div>
@@ -48,5 +48,4 @@
 
 <% content_for :preload do %>
   <%= preload_link_tag "frontend/uk-parliament-logo.svg", nopush: true %>
-  <%= preload_link_tag "frontend/uk-government-logo.svg", nopush: true %>
 <% end %>

@@ -1,0 +1,5 @@
+/* Exact GOV.UH black arms and its identical-alpha white counterpart. */
+.graphic.uh-coat-of-arms-white { width:80px; height:64px; object-fit:contain; }
+.uh-government-logo { margin-top:20px; }
+.uh-government-logo img { width:auto; height:40px; max-width:100%; }
+@media (min-width:641px) { .uh-government-logo { margin-left:45px; margin-top:0; } }
