@@ -1,13 +1,22 @@
-<h1>Sign in</h1>
+<h1>Parliament staff sign in</h1>
 <div class="grid-row">
-  <div class="column-half">
-    <%= form_for(@user, as: :user, url: admin_login_path, authenticity_token: form_authenticity_token) do |form| %>
+  <div class="column-two-thirds">
+    <p>Sign in to the UH Parliament petitions moderation service using your separate parliamentary staff credentials.</p>
+    <%= form_with url: "/admin/parliament/login", scope: :parliament, local: true do |form| %>
       <div class="form-group">
-        <%= form.label :email, "Email", class: "form-label" %>
-        <%= form.text_field :email, class: "form-control", inputmode: "email", autofocus: "autofocus", autocomplete: "email" %>
+        <%= form.label :email, "Parliamentary staff email", class: "form-label" %>
+        <%= form.email_field :email, required: true, autocomplete: "username", class: "form-control" %>
       </div>
-
+      <div class="form-group">
+        <%= form.label :password, "Parliamentary password", class: "form-label" %>
+        <%= form.password_field :password, required: true, autocomplete: "current-password", class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :authenticator_code, "Six-digit code from your authenticator app", class: "form-label" %>
+        <%= form.text_field :authenticator_code, required: true, pattern: "[0-9]{6}", maxlength: 6, inputmode: "numeric", autocomplete: "one-time-code", class: "form-control" %>
+      </div>
       <%= form.submit "Sign in", class: "button" %>
     <% end %>
+    <p>Your parliamentary account is separate from GOV.UH publishing accounts.</p>
   </div>
 </div>

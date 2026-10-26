@@ -1,0 +1,30 @@
+<% content_for :page_title, "Set up parliamentary moderator access" %>
+<h1>Set up parliamentary moderator access</h1>
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <p>Set up the independent parliamentary sign-in for <strong><%= @staff_email %></strong>.</p>
+    <p>Your GOV.UH Signon password and permissions are not used for this account.</p>
+    <h2>1. Save your authenticator key</h2>
+    <p>In your authenticator app, choose <strong>Add account</strong>, then <strong>Enter setup key</strong>. Choose a time-based code.</p>
+    <p><strong>Account:</strong> UH Parliament — Petitions moderation</p>
+    <p><strong>Secret setup key:</strong> <code><%= @authenticator_secret %></code></p>
+    <p>Keep this key private. You will need the authenticator app each time you sign in.</p>
+    <h2>2. Create a separate parliamentary password</h2>
+    <%= form_with url: "/admin/parliament/setup", scope: :parliament, local: true do |form| %>
+      <%= form.hidden_field :token, value: @enrolment_token %>
+      <div class="form-group">
+        <%= form.label :password, "New parliamentary password (at least 14 characters)", class: "form-label" %>
+        <%= form.password_field :password, required: true, minlength: 14, maxlength: 64, autocomplete: "new-password", class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :password_confirmation, "Confirm parliamentary password", class: "form-label" %>
+        <%= form.password_field :password_confirmation, required: true, minlength: 14, maxlength: 64, autocomplete: "new-password", class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :authenticator_code, "Current six-digit code", class: "form-label" %>
+        <%= form.text_field :authenticator_code, required: true, pattern: "[0-9]{6}", maxlength: 6, inputmode: "numeric", autocomplete: "one-time-code", class: "form-control" %>
+      </div>
+      <%= form.submit "Activate parliamentary account", class: "button" %>
+    <% end %>
+  </div>
+</div>

@@ -300,6 +300,10 @@ Rails.application.routes.draw do
     as :user do
       controller 'admin/sessions' do
         get  '/admin/login',    action: 'new'
+        get  '/admin/parliament/setup', action: 'parliament_setup'
+        post '/admin/parliament/setup', action: 'parliament_activate'
+        post '/admin/parliament/login', action: 'parliament_session'
+
         post '/admin/login',    action: 'create', as: nil
         get  '/admin/logout',   action: 'destroy'
         get  '/admin/continue', action: 'continue'
